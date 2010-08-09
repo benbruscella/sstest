@@ -2,6 +2,10 @@
  
 <div id="Content" class="typography">
   <% include Breadcrumbs %>
+ 
+  <h1>$Title</h1>
   $Content
-  $Form
+  <div class="newsDetails">
+    Posted on $Date.Nice by $Author
+  </div>
 </div>
