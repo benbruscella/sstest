@@ -8,4 +8,5 @@
   <div class="newsDetails">
     Posted on $Date.Nice by $Author
   </div>
+  $PageComments
 </div>

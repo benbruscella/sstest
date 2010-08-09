@@ -10,6 +10,9 @@ class ArticlePage extends Page {
    static $has_one = array(
    );
    static $icon = "themes/tutorial/images/treeicons/news";
+   static $defaults = array(
+      'ProvideComments' => true
+   );
 
  function getCMSFields() {
     $fields = parent::getCMSFields();
