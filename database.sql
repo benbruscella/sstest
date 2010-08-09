@@ -82,7 +82,7 @@ CREATE TABLE `ArticlePage_versions` (
   UNIQUE KEY `RecordID_Version` (`RecordID`,`Version`),
   KEY `RecordID` (`RecordID`),
   KEY `Version` (`Version`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +91,7 @@ CREATE TABLE `ArticlePage_versions` (
 
 LOCK TABLES `ArticlePage_versions` WRITE;
 /*!40000 ALTER TABLE `ArticlePage_versions` DISABLE KEYS */;
-INSERT INTO `ArticlePage_versions` VALUES (1,8,1,NULL,NULL),(2,8,2,NULL,NULL),(3,9,1,NULL,NULL),(4,9,2,NULL,NULL);
+INSERT INTO `ArticlePage_versions` VALUES (1,8,1,NULL,NULL),(2,8,2,NULL,NULL),(3,9,1,NULL,NULL),(4,9,2,NULL,NULL),(5,8,3,NULL,NULL),(6,9,3,NULL,NULL);
 /*!40000 ALTER TABLE `ArticlePage_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +226,7 @@ CREATE TABLE `File` (
   KEY `ParentID` (`ParentID`),
   KEY `OwnerID` (`OwnerID`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +235,7 @@ CREATE TABLE `File` (
 
 LOCK TABLES `File` WRITE;
 /*!40000 ALTER TABLE `File` DISABLE KEYS */;
-INSERT INTO `File` VALUES (1,'Folder','2010-08-09 10:12:59','2010-08-09 10:12:59','Uploads','Uploads','assets/Uploads/',NULL,0,0,0),(2,'Image','2010-08-09 10:12:59','2010-08-09 10:12:59','SilverStripeLogo.png','SilverStripeLogo.png','assets/Uploads/SilverStripeLogo.png',NULL,0,1,0);
+INSERT INTO `File` VALUES (1,'Folder','2010-08-09 10:12:59','2010-08-09 10:12:59','Uploads','Uploads','assets/Uploads/',NULL,0,0,0),(2,'Image','2010-08-09 10:12:59','2010-08-09 10:12:59','SilverStripeLogo.png','SilverStripeLogo.png','assets/Uploads/SilverStripeLogo.png',NULL,0,1,0),(3,'Image','2010-08-09 13:46:37','2010-08-09 13:46:37','bradpitt.jpg','bradpitt','assets/Uploads/bradpitt.jpg',NULL,0,1,1);
 /*!40000 ALTER TABLE `File` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -401,7 +401,7 @@ CREATE TABLE `Member` (
 
 LOCK TABLES `Member` WRITE;
 /*!40000 ALTER TABLE `Member` DISABLE KEYS */;
-INSERT INTO `Member` VALUES (1,'Member','2010-08-09 10:12:59','2010-08-09 10:48:28','Default Admin',NULL,'admin','e0a01e7d241f9cb9d467f5d3eef688ccdfd2c7e0',NULL,1,'2010-08-09 13:06:30',0,NULL,NULL,'sha1_v2.4','e99d68dca432cd1fa610c45402b41b44c61933e51281312779',NULL,NULL,'en_US',0,NULL,NULL);
+INSERT INTO `Member` VALUES (1,'Member','2010-08-09 10:12:59','2010-08-09 10:48:28','Default Admin',NULL,'admin','e0a01e7d241f9cb9d467f5d3eef688ccdfd2c7e0',NULL,1,'2010-08-09 13:46:57',0,NULL,NULL,'sha1_v2.4','e99d68dca432cd1fa610c45402b41b44c61933e51281312779',NULL,NULL,'en_US',0,NULL,NULL);
 /*!40000 ALTER TABLE `Member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -798,7 +798,7 @@ DROP TABLE IF EXISTS `SiteTree`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SiteTree` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `ClassName` enum('SiteTree','Page','ArticleHolder','ArticlePage','HomePage','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
+  `ClassName` enum('SiteTree','Page','ArticleHolder','ArticlePage','HomePage','StaffHolder','StaffPage','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
   `Created` datetime DEFAULT NULL,
   `LastEdited` datetime DEFAULT NULL,
   `URLSegment` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
@@ -828,7 +828,7 @@ CREATE TABLE `SiteTree` (
   KEY `ParentID` (`ParentID`),
   KEY `URLSegment` (`URLSegment`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -837,7 +837,7 @@ CREATE TABLE `SiteTree` (
 
 LOCK TABLES `SiteTree` WRITE;
 /*!40000 ALTER TABLE `SiteTree` DISABLE KEYS */;
-INSERT INTO `SiteTree` VALUES (1,'HomePage','2010-08-09 10:12:59','2010-08-09 11:55:25','home','Home',NULL,'<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href=\"admin/\">the CMS</a>. You can now access the <a href=\"http://doc.silverstripe.org\">developer documentation</a>, or begin <a href=\"http://doc.silverstripe.org/doku.php?id=tutorials\">the tutorials.</a></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'1.0',0),(2,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','about-us','About Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.<br/></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,3,0,0,'Published',NULL,'Inherit','Inherit',NULL,1,NULL,0),(3,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','contact-us','Contact Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.<br/></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,4,0,0,'Published',NULL,'Inherit','Inherit',NULL,1,NULL,0),(4,'ErrorPage','2010-08-09 10:12:59','2010-08-09 10:12:59','page-not-found','Page not found',NULL,'<p>Sorry, it seems you were trying to access a page that doesn\'t exist.</p><p>Please check the spelling of the URL you were trying to access and try again.</p>',NULL,NULL,NULL,NULL,0,0,NULL,0,5,0,0,'New page',NULL,'Inherit','Inherit',NULL,1,NULL,0),(5,'Page','2010-08-09 10:48:44','2010-08-09 10:48:59','what-we-do','What we do',NULL,NULL,'What we do',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',2),(6,'Page','2010-08-09 10:48:47','2010-08-09 11:49:11','history','History',NULL,NULL,'History',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',2),(7,'ArticleHolder','2010-08-09 12:14:36','2010-08-09 12:18:52','news','News',NULL,NULL,'News',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,3,'1.0',0),(8,'ArticlePage','2010-08-09 12:15:01','2010-08-09 12:18:46','ohio-voters-can-go-back-to-page','Ohio Voters Can Go Back to Page',NULL,NULL,'Ohio Voters Can Go Back to Page',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',7),(9,'ArticlePage','2010-08-09 12:15:36','2010-08-09 12:18:49','two-security-bulletins-passed','Two Security Bulletins Passed',NULL,NULL,'Two Security Bulletins Passed',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',7);
+INSERT INTO `SiteTree` VALUES (1,'HomePage','2010-08-09 10:12:59','2010-08-09 11:55:25','home','Home',NULL,'<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href=\"admin/\">the CMS</a>. You can now access the <a href=\"http://doc.silverstripe.org\">developer documentation</a>, or begin <a href=\"http://doc.silverstripe.org/doku.php?id=tutorials\">the tutorials.</a></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'1.0',0),(2,'Page','2010-08-09 10:12:59','2010-08-09 13:45:05','about-us','About Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.</p>',NULL,NULL,NULL,NULL,1,1,NULL,0,3,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'1.0',0),(3,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','contact-us','Contact Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.<br/></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,4,0,0,'Published',NULL,'Inherit','Inherit',NULL,1,NULL,0),(4,'ErrorPage','2010-08-09 10:12:59','2010-08-09 10:12:59','page-not-found','Page not found',NULL,'<p>Sorry, it seems you were trying to access a page that doesn\'t exist.</p><p>Please check the spelling of the URL you were trying to access and try again.</p>',NULL,NULL,NULL,NULL,0,0,NULL,0,5,0,0,'New page',NULL,'Inherit','Inherit',NULL,1,NULL,0),(5,'Page','2010-08-09 10:48:44','2010-08-09 10:48:59','what-we-do','What we do',NULL,NULL,'What we do',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',2),(6,'Page','2010-08-09 10:48:47','2010-08-09 11:49:11','history','History',NULL,NULL,'History',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',2),(7,'ArticleHolder','2010-08-09 12:14:36','2010-08-09 13:23:09','news','News',NULL,NULL,'News',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,3,'1.0',0),(8,'ArticlePage','2010-08-09 12:15:01','2010-08-09 13:23:04','ohio-voters-can-go-back-to-page','Ohio Voters Can Go Back to Page',NULL,NULL,'Ohio Voters Can Go Back to Page',NULL,NULL,NULL,1,1,NULL,1,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,3,'0.9',7),(9,'ArticlePage','2010-08-09 12:15:36','2010-08-09 13:23:01','two-security-bulletins-passed','Two Security Bulletins Passed',NULL,NULL,'Two Security Bulletins Passed',NULL,NULL,NULL,1,1,NULL,1,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,3,'0.9',7),(10,'StaffHolder','2010-08-09 13:43:34','2010-08-09 13:44:58','staff','Staff',NULL,NULL,'Staff',NULL,NULL,NULL,1,1,NULL,0,3,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',2),(11,'StaffPage','2010-08-09 13:43:48','2010-08-09 13:46:41','albert-einstein','Albert Einstein',NULL,'<p>He rocked</p>','Albert Einstein',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,3,'0.8',10);
 /*!40000 ALTER TABLE `SiteTree` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -930,7 +930,7 @@ DROP TABLE IF EXISTS `SiteTree_Live`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `SiteTree_Live` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `ClassName` enum('SiteTree','Page','ArticleHolder','ArticlePage','HomePage','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
+  `ClassName` enum('SiteTree','Page','ArticleHolder','ArticlePage','HomePage','StaffHolder','StaffPage','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
   `Created` datetime DEFAULT NULL,
   `LastEdited` datetime DEFAULT NULL,
   `URLSegment` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
@@ -960,7 +960,7 @@ CREATE TABLE `SiteTree_Live` (
   KEY `ParentID` (`ParentID`),
   KEY `URLSegment` (`URLSegment`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -969,7 +969,7 @@ CREATE TABLE `SiteTree_Live` (
 
 LOCK TABLES `SiteTree_Live` WRITE;
 /*!40000 ALTER TABLE `SiteTree_Live` DISABLE KEYS */;
-INSERT INTO `SiteTree_Live` VALUES (1,'HomePage','2010-08-09 10:12:59','2010-08-09 11:55:25','home','Home',NULL,'<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href=\"admin/\">the CMS</a>. You can now access the <a href=\"http://doc.silverstripe.org\">developer documentation</a>, or begin <a href=\"http://doc.silverstripe.org/doku.php?id=tutorials\">the tutorials.</a></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'1.0',0),(2,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','about-us','About Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.<br/></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,3,0,0,'Published',NULL,'Inherit','Inherit',NULL,1,NULL,0),(3,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','contact-us','Contact Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.<br/></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,4,0,0,'Published',NULL,'Inherit','Inherit',NULL,1,NULL,0),(4,'ErrorPage','2010-08-09 10:12:59','2010-08-09 10:13:02','page-not-found','Page not found',NULL,'<p>Sorry, it seems you were trying to access a page that doesn\'t exist.</p><p>Please check the spelling of the URL you were trying to access and try again.</p>',NULL,NULL,NULL,NULL,0,0,NULL,0,5,0,0,'New page',NULL,'Inherit','Inherit',NULL,1,NULL,0),(5,'Page','2010-08-09 10:48:44','2010-08-09 10:48:59','what-we-do','What we do',NULL,NULL,'What we do',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',2),(6,'Page','2010-08-09 10:48:47','2010-08-09 11:49:11','history','History',NULL,NULL,'History',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',2),(7,'ArticleHolder','2010-08-09 12:14:36','2010-08-09 12:18:52','news','News',NULL,NULL,'News',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,3,'1.0',0),(8,'ArticlePage','2010-08-09 12:15:01','2010-08-09 12:18:46','ohio-voters-can-go-back-to-page','Ohio Voters Can Go Back to Page',NULL,NULL,'Ohio Voters Can Go Back to Page',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',7),(9,'ArticlePage','2010-08-09 12:15:36','2010-08-09 12:18:49','two-security-bulletins-passed','Two Security Bulletins Passed',NULL,NULL,'Two Security Bulletins Passed',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',7);
+INSERT INTO `SiteTree_Live` VALUES (1,'HomePage','2010-08-09 10:12:59','2010-08-09 11:55:25','home','Home',NULL,'<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href=\"admin/\">the CMS</a>. You can now access the <a href=\"http://doc.silverstripe.org\">developer documentation</a>, or begin <a href=\"http://doc.silverstripe.org/doku.php?id=tutorials\">the tutorials.</a></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'1.0',0),(2,'Page','2010-08-09 10:12:59','2010-08-09 13:45:05','about-us','About Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.</p>',NULL,NULL,NULL,NULL,1,1,NULL,0,3,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'1.0',0),(3,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','contact-us','Contact Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.<br/></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,4,0,0,'Published',NULL,'Inherit','Inherit',NULL,1,NULL,0),(4,'ErrorPage','2010-08-09 10:12:59','2010-08-09 10:13:02','page-not-found','Page not found',NULL,'<p>Sorry, it seems you were trying to access a page that doesn\'t exist.</p><p>Please check the spelling of the URL you were trying to access and try again.</p>',NULL,NULL,NULL,NULL,0,0,NULL,0,5,0,0,'New page',NULL,'Inherit','Inherit',NULL,1,NULL,0),(5,'Page','2010-08-09 10:48:44','2010-08-09 10:48:59','what-we-do','What we do',NULL,NULL,'What we do',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',2),(6,'Page','2010-08-09 10:48:47','2010-08-09 11:49:11','history','History',NULL,NULL,'History',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',2),(7,'ArticleHolder','2010-08-09 12:14:36','2010-08-09 13:23:09','news','News',NULL,NULL,'News',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,3,'1.0',0),(8,'ArticlePage','2010-08-09 12:15:01','2010-08-09 13:23:04','ohio-voters-can-go-back-to-page','Ohio Voters Can Go Back to Page',NULL,NULL,'Ohio Voters Can Go Back to Page',NULL,NULL,NULL,1,1,NULL,1,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,3,'0.9',7),(9,'ArticlePage','2010-08-09 12:15:36','2010-08-09 13:23:01','two-security-bulletins-passed','Two Security Bulletins Passed',NULL,NULL,'Two Security Bulletins Passed',NULL,NULL,NULL,1,1,NULL,1,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,3,'0.9',7),(10,'StaffHolder','2010-08-09 13:43:34','2010-08-09 13:44:58','staff','Staff',NULL,NULL,'Staff',NULL,NULL,NULL,1,1,NULL,0,3,0,0,'Published',NULL,'Inherit','Inherit',NULL,2,'0.9',2),(11,'StaffPage','2010-08-09 13:43:48','2010-08-09 13:46:41','albert-einstein','Albert Einstein',NULL,'<p>He rocked</p>','Albert Einstein',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,3,'0.8',10);
 /*!40000 ALTER TABLE `SiteTree_Live` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1013,7 +1013,7 @@ CREATE TABLE `SiteTree_versions` (
   `WasPublished` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `AuthorID` int(11) NOT NULL DEFAULT '0',
   `PublisherID` int(11) NOT NULL DEFAULT '0',
-  `ClassName` enum('SiteTree','Page','ArticleHolder','ArticlePage','HomePage','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
+  `ClassName` enum('SiteTree','Page','ArticleHolder','ArticlePage','HomePage','StaffHolder','StaffPage','ErrorPage','RedirectorPage','VirtualPage') CHARACTER SET utf8 DEFAULT 'SiteTree',
   `Created` datetime DEFAULT NULL,
   `LastEdited` datetime DEFAULT NULL,
   `URLSegment` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
@@ -1047,7 +1047,7 @@ CREATE TABLE `SiteTree_versions` (
   KEY `ParentID` (`ParentID`),
   KEY `URLSegment` (`URLSegment`),
   KEY `ClassName` (`ClassName`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1056,8 +1056,88 @@ CREATE TABLE `SiteTree_versions` (
 
 LOCK TABLES `SiteTree_versions` WRITE;
 /*!40000 ALTER TABLE `SiteTree_versions` DISABLE KEYS */;
-INSERT INTO `SiteTree_versions` VALUES (1,1,1,1,0,0,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','home','Home',NULL,'<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href=\"admin/\">the CMS</a>. You can now access the <a href=\"http://doc.silverstripe.org\">developer documentation</a>, or begin <a href=\"http://doc.silverstripe.org/doku.php?id=tutorials\">the tutorials.</a></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,NULL,0),(2,2,1,1,0,0,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','about-us','About Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.<br/></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,NULL,0),(3,3,1,1,0,0,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','contact-us','Contact Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.<br/></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,3,0,0,'Published',NULL,'Inherit','Inherit',NULL,NULL,0),(4,4,1,1,0,0,'ErrorPage','2010-08-09 10:12:59','2010-08-09 10:12:59','page-not-found','Page not found',NULL,'<p>Sorry, it seems you were trying to access a page that doesn\'t exist.</p><p>Please check the spelling of the URL you were trying to access and try again.</p>',NULL,NULL,NULL,NULL,0,0,NULL,0,4,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,0),(5,5,1,0,1,0,'Page','2010-08-09 10:48:44','2010-08-09 10:48:44','new-page','New Page',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,2),(6,6,1,0,1,0,'Page','2010-08-09 10:48:47','2010-08-09 10:48:47','new-page-2','New Page',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,2,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,2),(7,5,2,1,1,1,'Page','2010-08-09 10:48:44','2010-08-09 10:48:59','what-we-do','What we do',NULL,NULL,'What we do',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Saved (new)',NULL,'Inherit','Inherit',NULL,'0.9',2),(8,6,2,1,1,1,'Page','2010-08-09 10:48:47','2010-08-09 11:49:11','history','History',NULL,NULL,'History',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Saved (new)',NULL,'Inherit','Inherit',NULL,'0.9',2),(9,1,2,1,1,1,'HomePage','2010-08-09 10:12:59','2010-08-09 11:55:25','home','Home',NULL,'<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href=\"admin/\">the CMS</a>. You can now access the <a href=\"http://doc.silverstripe.org\">developer documentation</a>, or begin <a href=\"http://doc.silverstripe.org/doku.php?id=tutorials\">the tutorials.</a></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Saved (update)',NULL,'Inherit','Inherit',NULL,'1.0',0),(10,7,1,0,1,0,'ArticleHolder','2010-08-09 12:14:36','2010-08-09 12:14:36','new-articleholder','New ArticleHolder',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,5,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,0),(11,7,2,0,1,0,'ArticleHolder','2010-08-09 12:14:36','2010-08-09 12:14:41','new-articleholder','New ArticleHolder',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Saved (update)',NULL,'Inherit','Inherit',NULL,NULL,0),(12,7,3,1,1,1,'ArticleHolder','2010-08-09 12:14:36','2010-08-09 12:14:48','news','News',NULL,NULL,'News',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Saved (update)',NULL,'Inherit','Inherit',NULL,'1.0',0),(13,8,1,0,1,0,'ArticlePage','2010-08-09 12:15:01','2010-08-09 12:15:01','new-articlepage','New ArticlePage',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,7),(14,8,2,1,1,1,'ArticlePage','2010-08-09 12:15:01','2010-08-09 12:15:30','ohio-voters-can-go-back-to-page','Ohio Voters Can Go Back to Page',NULL,NULL,'Ohio Voters Can Go Back to Page',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Saved (new)',NULL,'Inherit','Inherit',NULL,'0.9',7),(15,9,1,0,1,0,'ArticlePage','2010-08-09 12:15:36','2010-08-09 12:15:36','new-articlepage','New ArticlePage',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,2,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,7),(16,9,2,1,1,1,'ArticlePage','2010-08-09 12:15:36','2010-08-09 12:15:46','two-security-bulletins-passed','Two Security Bulletins Passed',NULL,NULL,'Two Security Bulletins Passed',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Saved (new)',NULL,'Inherit','Inherit',NULL,'0.9',7);
+INSERT INTO `SiteTree_versions` VALUES (1,1,1,1,0,0,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','home','Home',NULL,'<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href=\"admin/\">the CMS</a>. You can now access the <a href=\"http://doc.silverstripe.org\">developer documentation</a>, or begin <a href=\"http://doc.silverstripe.org/doku.php?id=tutorials\">the tutorials.</a></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,NULL,0),(2,2,1,1,0,0,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','about-us','About Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.<br/></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Published',NULL,'Inherit','Inherit',NULL,NULL,0),(3,3,1,1,0,0,'Page','2010-08-09 10:12:59','2010-08-09 10:12:59','contact-us','Contact Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.<br/></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,3,0,0,'Published',NULL,'Inherit','Inherit',NULL,NULL,0),(4,4,1,1,0,0,'ErrorPage','2010-08-09 10:12:59','2010-08-09 10:12:59','page-not-found','Page not found',NULL,'<p>Sorry, it seems you were trying to access a page that doesn\'t exist.</p><p>Please check the spelling of the URL you were trying to access and try again.</p>',NULL,NULL,NULL,NULL,0,0,NULL,0,4,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,0),(5,5,1,0,1,0,'Page','2010-08-09 10:48:44','2010-08-09 10:48:44','new-page','New Page',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,2),(6,6,1,0,1,0,'Page','2010-08-09 10:48:47','2010-08-09 10:48:47','new-page-2','New Page',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,2,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,2),(7,5,2,1,1,1,'Page','2010-08-09 10:48:44','2010-08-09 10:48:59','what-we-do','What we do',NULL,NULL,'What we do',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Saved (new)',NULL,'Inherit','Inherit',NULL,'0.9',2),(8,6,2,1,1,1,'Page','2010-08-09 10:48:47','2010-08-09 11:49:11','history','History',NULL,NULL,'History',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Saved (new)',NULL,'Inherit','Inherit',NULL,'0.9',2),(9,1,2,1,1,1,'HomePage','2010-08-09 10:12:59','2010-08-09 11:55:25','home','Home',NULL,'<p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href=\"admin/\">the CMS</a>. You can now access the <a href=\"http://doc.silverstripe.org\">developer documentation</a>, or begin <a href=\"http://doc.silverstripe.org/doku.php?id=tutorials\">the tutorials.</a></p>',NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Saved (update)',NULL,'Inherit','Inherit',NULL,'1.0',0),(10,7,1,0,1,0,'ArticleHolder','2010-08-09 12:14:36','2010-08-09 12:14:36','new-articleholder','New ArticleHolder',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,5,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,0),(11,7,2,0,1,0,'ArticleHolder','2010-08-09 12:14:36','2010-08-09 12:14:41','new-articleholder','New ArticleHolder',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Saved (update)',NULL,'Inherit','Inherit',NULL,NULL,0),(12,7,3,1,1,1,'ArticleHolder','2010-08-09 12:14:36','2010-08-09 12:14:48','news','News',NULL,NULL,'News',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Saved (update)',NULL,'Inherit','Inherit',NULL,'1.0',0),(13,8,1,0,1,0,'ArticlePage','2010-08-09 12:15:01','2010-08-09 12:15:01','new-articlepage','New ArticlePage',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,7),(14,8,2,1,1,1,'ArticlePage','2010-08-09 12:15:01','2010-08-09 12:15:30','ohio-voters-can-go-back-to-page','Ohio Voters Can Go Back to Page',NULL,NULL,'Ohio Voters Can Go Back to Page',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Saved (new)',NULL,'Inherit','Inherit',NULL,'0.9',7),(15,9,1,0,1,0,'ArticlePage','2010-08-09 12:15:36','2010-08-09 12:15:36','new-articlepage','New ArticlePage',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,2,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,7),(16,9,2,1,1,1,'ArticlePage','2010-08-09 12:15:36','2010-08-09 12:15:46','two-security-bulletins-passed','Two Security Bulletins Passed',NULL,NULL,'Two Security Bulletins Passed',NULL,NULL,NULL,1,1,NULL,0,2,0,0,'Saved (new)',NULL,'Inherit','Inherit',NULL,'0.9',7),(17,8,3,1,1,1,'ArticlePage','2010-08-09 12:15:01','2010-08-09 13:22:22','ohio-voters-can-go-back-to-page','Ohio Voters Can Go Back to Page',NULL,NULL,'Ohio Voters Can Go Back to Page',NULL,NULL,NULL,1,1,NULL,1,1,0,0,'Saved (update)',NULL,'Inherit','Inherit',NULL,'0.9',7),(18,9,3,1,1,1,'ArticlePage','2010-08-09 12:15:36','2010-08-09 13:23:01','two-security-bulletins-passed','Two Security Bulletins Passed',NULL,NULL,'Two Security Bulletins Passed',NULL,NULL,NULL,1,1,NULL,1,2,0,0,'Saved (update)',NULL,'Inherit','Inherit',NULL,'0.9',7),(19,10,1,0,1,0,'StaffHolder','2010-08-09 13:43:34','2010-08-09 13:43:34','new-staffholder','New StaffHolder',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,3,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,2),(20,10,2,1,1,1,'StaffHolder','2010-08-09 13:43:34','2010-08-09 13:43:42','staff','Staff',NULL,NULL,'Staff',NULL,NULL,NULL,1,1,NULL,0,3,0,0,'Saved (new)',NULL,'Inherit','Inherit',NULL,'0.9',2),(21,11,1,0,1,0,'StaffPage','2010-08-09 13:43:48','2010-08-09 13:43:48','new-staffpage','New StaffPage',NULL,NULL,NULL,NULL,NULL,NULL,1,1,NULL,0,1,0,0,'New page',NULL,'Inherit','Inherit',NULL,NULL,10),(22,11,2,1,1,1,'StaffPage','2010-08-09 13:43:48','2010-08-09 13:44:03','albert-einstein','Albert Einstein',NULL,'<p>He rocked</p>','Albert Einstein',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Saved (new)',NULL,'Inherit','Inherit',NULL,'0.8',10),(23,2,2,1,1,1,'Page','2010-08-09 10:12:59','2010-08-09 13:45:05','about-us','About Us',NULL,'<p>You can fill this page out with your own content, or delete it and create your own pages.</p>',NULL,NULL,NULL,NULL,1,1,NULL,0,3,0,0,'Saved (update)',NULL,'Inherit','Inherit',NULL,'1.0',0),(24,11,3,1,1,1,'StaffPage','2010-08-09 13:43:48','2010-08-09 13:46:37','albert-einstein','Albert Einstein',NULL,'<p>He rocked</p>','Albert Einstein',NULL,NULL,NULL,1,1,NULL,0,1,0,0,'Published',NULL,'Inherit','Inherit',NULL,'0.8',10);
 /*!40000 ALTER TABLE `SiteTree_versions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `StaffPage`
+--
+
+DROP TABLE IF EXISTS `StaffPage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `StaffPage` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PhotoID` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `PhotoID` (`PhotoID`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StaffPage`
+--
+
+LOCK TABLES `StaffPage` WRITE;
+/*!40000 ALTER TABLE `StaffPage` DISABLE KEYS */;
+INSERT INTO `StaffPage` VALUES (11,3);
+/*!40000 ALTER TABLE `StaffPage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `StaffPage_Live`
+--
+
+DROP TABLE IF EXISTS `StaffPage_Live`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `StaffPage_Live` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PhotoID` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `PhotoID` (`PhotoID`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StaffPage_Live`
+--
+
+LOCK TABLES `StaffPage_Live` WRITE;
+/*!40000 ALTER TABLE `StaffPage_Live` DISABLE KEYS */;
+INSERT INTO `StaffPage_Live` VALUES (11,3);
+/*!40000 ALTER TABLE `StaffPage_Live` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `StaffPage_versions`
+--
+
+DROP TABLE IF EXISTS `StaffPage_versions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `StaffPage_versions` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `RecordID` int(11) NOT NULL DEFAULT '0',
+  `Version` int(11) NOT NULL DEFAULT '0',
+  `PhotoID` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `RecordID_Version` (`RecordID`,`Version`),
+  KEY `RecordID` (`RecordID`),
+  KEY `Version` (`Version`),
+  KEY `PhotoID` (`PhotoID`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StaffPage_versions`
+--
+
+LOCK TABLES `StaffPage_versions` WRITE;
+/*!40000 ALTER TABLE `StaffPage_versions` DISABLE KEYS */;
+INSERT INTO `StaffPage_versions` VALUES (1,11,1,0),(2,11,2,0),(3,11,3,3);
+/*!40000 ALTER TABLE `StaffPage_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1205,4 +1285,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-08-09 13:06:44
+-- Dump completed on 2010-08-09 13:48:04
